@@ -6,8 +6,7 @@ class BookClass:
         self.publish_date = publish_date
     
     def printBookDetails(self):
-        print(f"Title \t\t\t Description \t\t\t Author \t\t\t Publish Date")
-        return f"{self.title}\t\t\t{self.description}\t\t\t{self.author}\t\t\t{self.publish_date}"
+        return (f"<center>Title:{self.title}<br> Description:{self.description}<br>Author:{self.author}<br>Publish Date:{self.publish_date}<br></ceenter>")
     
 bk1 = BookClass("Moonlight Cove", "Family and friends mean everything", "Sherryl Woods", "2017")
 bk2 = BookClass("Moonlight", "Family is everything", "Sherryl Woofs", "2013")
@@ -16,3 +15,5 @@ bk3 = BookClass("Moonlight Cove", "friends mean everything", "Sherryl Wolds", "2
 book1 = bk1.printBookDetails()
 book2 = bk2.printBookDetails()
 book3 = bk3.printBookDetails()
+
+books = [book1, book2, book3]

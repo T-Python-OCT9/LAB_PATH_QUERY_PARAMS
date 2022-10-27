@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 import random
-from books import bookClass.books
+from books.bookClass import books
 
 
 # Create your views here.

@@ -4,5 +4,5 @@ from . import views
 name_app = "Random"
 
 urlpatterns = [
-    path('random/', 'views.printRandomItem', name = "Random"),
+    path('random/', views.printRandomItem, name = "Random"),
 ]
