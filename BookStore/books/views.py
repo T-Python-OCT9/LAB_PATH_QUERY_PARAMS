@@ -18,10 +18,10 @@ def all_list(request : HttpRequest):
     all_list = Book_list
     
 
-    return HttpResponse(f"this is all Books! : {all_list}")
+    return HttpResponse(f"these are all Books! : {all_list}")
 
 def view_book(request : HttpRequest, book_index):
     
     selected_book = Book_list[book_index]
 
-    return HttpResponse(f"book info: {selected_book}")
+    return HttpResponse(f"This is the book info: {selected_book}")
