@@ -3,7 +3,7 @@ from django.http import HttpRequest,HttpResponse
 from  BooksInfo import *
 
 
-book_List = [book1, book2.book_info , book3.book_info , book4.book_info , book5.book_info]
+book_List = [book1.book_info, book2.book_info , book3.book_info , book4.book_info , book5.book_info]
 
 def book_List_View(request:HttpRequest):
     
