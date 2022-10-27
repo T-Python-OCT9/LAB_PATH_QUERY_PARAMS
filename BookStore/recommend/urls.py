@@ -5,5 +5,5 @@ app_name="recommend"
 
 
 urlpatterns = [
-    path('',views.roundom,name='recommend')
+    path("random/", views.Random_Book, name="random_book"),
 ]

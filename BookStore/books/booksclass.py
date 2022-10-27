@@ -1,12 +1,31 @@
+from datetime import date
 class book :
 
-    def __init__(self,title,description,author,publish_date) -> None:
-        self.title = title 
-        self.description = description
-        self.author = author
-        self.publish_date = publish_date
+    def __init__(self, title : str, description : str, author: str, publish_date: date) -> None:
+        
+        self.__title = title
+        self.__description = description
+        self.__author = author
+        self.__publish_date = publish_date
 
-    def printBookDetails(self):
-        print(f"Title \t\t\t Description \t\t\t Author \t\t\t Publish Date")
-        return f"\ntitle :{self.title}\ndescription : {self.description}\nauthor : {self.author}\npublish date : {self.publish_date}\n"    
+    
+    def describe(self):
+        return f"title : {self.getTitle()}, Description: {self.getDescription()}, Author: {self.getAuthor()}, publish date: {self.getPublishDate()}"
 
+    def getTitle(self):
+        return self.__title
+
+    def setTitle(self, title):
+        self.__title = title
+    
+    def getDescription(self):
+        return self.__description
+
+    def getAuthor(self):
+        return self.__author
+
+    def getPublishDate(self):
+        return self.__publish_date
+
+        
+    

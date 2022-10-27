@@ -1,32 +1,33 @@
 from django.shortcuts import render
 from django.http import HttpRequest,HttpResponse
-from booksclass import *
+from .booksclass import book
+from datetime import date
+
+book1 = book ("harry potter","fantasy novel","J. K. Rowling",date(1998,2,10))
+book2 = book ("The Witcher","fantasy novel","Andrzej Sapkowski",date(1899,5,10))
+book3 = book ("Game of Thrones","fantasy novel","George RR Martin",date(1996,2,10))
+book4 = book ("Lord of the Rings","fantasy Novel","J. R. R. Tolkien",date(1994,3,10))
 
 
-book1 = book ("harry potter","fantasy novel","J. K. Rowling","1997")
-book2 = book ("The Witcher","fantasy novel","Andrzej Sapkowski","1986")
-book3 = book ("Game of Thrones","fantasy novel","George RR Martin","1996")
-book4 = book ("Lord of the Rings","fantasy Novel","J. R. R. Tolkien","1968")
 
-bookone =book1.printBookDetails()
-booktwo =book2.printBookDetails()
-bookthree =book3.printBookDetails()
-bookfour =book4.printBookDetails()
+book_list =  [book1,book2,book3,book4]
 
 
-book_list =  [bookone,booktwo,bookthree,bookfour]
+def list_all_books(request:HttpRequest):
 
-def view_book_all(request:HttpRequest):
-    limit = int(request.GET.get("limit"))
-    all_books = "<br/>".join(book_list[:limit])
+    limit = int(request.GET.get("limit", 5))
 
-    return HttpResponse (all_books)
+    output = ""
 
-def view_book (request: HttpRequest,book_index):
-
-    selected_book = book_list[book_index]    
+    for book in book_list[:limit]:
+        output += f"{book.describe()} <br/>"
     
-    return HttpResponse (f"the book is : {selected_book}")
+    return HttpResponse(output)
+
+
+def view_book(request: HttpRequest, book_id):
+    book = book_list[book_id]
+    return HttpResponse(book.describe())
 
 def home(request: HttpRequest):
     msg = "Welcome to my new Home"
